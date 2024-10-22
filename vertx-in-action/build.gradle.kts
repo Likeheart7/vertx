@@ -14,8 +14,9 @@ repositories {
 
 dependencies {
     implementation("io.vertx:vertx-core:4.5.10")    // vertx核心包
-    implementation("ch.qos.logback:logback-classic:1.2.3" +
-            "") // 提供SLF4J和logback实现
+    implementation("ch.qos.logback:logback-classic:1.2.3") // 提供SLF4J和logback实现， 1.4.12的版本出现打印不出日志的情况
+    // 尝试集群部署需要添加集群管理器依赖
+    implementation("io.vertx:vertx-hazelcast:4.5.10")
 }
 
 java {
