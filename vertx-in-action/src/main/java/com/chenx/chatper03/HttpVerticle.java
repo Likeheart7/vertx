@@ -29,6 +29,7 @@ public class HttpVerticle extends AbstractVerticle {
 
     /**
      * 通过vertx对server-sent events的实现，可以从服务器向客户端推送
+     *
      * @param request
      */
     private void sse(HttpServerRequest request) {
@@ -55,10 +56,10 @@ public class HttpVerticle extends AbstractVerticle {
                 }
             });
         });
-            // 客户端断开连接/刷新页面，需要取消注册事件总线消息消费者，并取消计算平均值的周期任务
-            response.endHandler(v -> {
-                consumer.unregister();
-                ticks.cancel();
+        // 客户端断开连接/刷新页面，需要取消注册事件总线消息消费者，并取消计算平均值的周期任务
+        response.endHandler(v -> {
+            consumer.unregister();
+            ticks.cancel();
         });
     }
 }

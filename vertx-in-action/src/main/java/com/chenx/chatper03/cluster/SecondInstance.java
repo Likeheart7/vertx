@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class SecondInstance {
     private static final Logger log = LoggerFactory.getLogger(SecondInstance.class);
+
     public static void main(String[] args) {
         Vertx.clusteredVertx(new VertxOptions(), ar -> {
             if (ar.succeeded()) {

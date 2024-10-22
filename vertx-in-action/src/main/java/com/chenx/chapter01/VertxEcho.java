@@ -18,7 +18,7 @@ public class VertxEcho {
 
         // 创建HTTP服务器，设置监听端口并为每个请求提供回调函数
         vertx.createHttpServer()
-                .requestHandler(request -> request.response().end(howMany())    )
+                .requestHandler(request -> request.response().end(howMany()))
                 .listen(8080);
     }
 

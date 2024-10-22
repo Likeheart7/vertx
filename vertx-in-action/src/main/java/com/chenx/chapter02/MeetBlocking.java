@@ -18,7 +18,7 @@ public class MeetBlocking extends AbstractVerticle {
         io.vertx.core.VertxException: Thread blocked
          */
         vertx.setPeriodic(5000, id -> {
-            while (true);
+            while (true) ;
         });
     }
 

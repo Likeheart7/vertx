@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MasterVerticle extends AbstractVerticle {
     public static final Logger log = LoggerFactory.getLogger(AbstractVerticle.class);
+
     @Override
     public void start() throws Exception {
         // 每隔2s部署一个SimpleVerticle
@@ -24,7 +25,7 @@ public class MasterVerticle extends AbstractVerticle {
     }
 
     private void deploy() {
-        vertx.deployVerticle(new SimpleVerticle(), res->{
+        vertx.deployVerticle(new SimpleVerticle(), res -> {
             if (res.succeeded()) {
                 String id = res.result();
                 log.info("Successfully deploy [{}]", id);
@@ -36,7 +37,7 @@ public class MasterVerticle extends AbstractVerticle {
     }
 
     private void undeployLater(String id) {
-        vertx.undeploy(id, ar->{
+        vertx.undeploy(id, ar -> {
             if (ar.succeeded()) {
                 log.info("Undeploy successfully.");
             } else {
@@ -52,6 +53,7 @@ public class MasterVerticle extends AbstractVerticle {
 
     private static class SimpleVerticle extends AbstractVerticle {
         public static final Logger log = LoggerFactory.getLogger(SelectBinding.AsBoolean.class);
+
         @Override
         public void start() throws Exception {
             log.info("simple verticle start...");

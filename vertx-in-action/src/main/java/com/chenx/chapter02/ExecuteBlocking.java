@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ExecuteBlocking extends AbstractVerticle {
     private static final Logger log = LoggerFactory.getLogger(ExecuteBlocking.class);
+
     @Override
     public void start() throws Exception {
         log.info("[{}] execute start method.", Thread.currentThread().getName());
@@ -19,8 +20,11 @@ public class ExecuteBlocking extends AbstractVerticle {
                     log.info("[{}] execute executing task.", Thread.currentThread().getName());
                     try {
                         log.info("before sleep..");
-                        TimeUnit.SECONDS.sleep(4);} catch (InterruptedException e) {e.printStackTrace();}
-                        log.info("after sleep..");
+                        TimeUnit.SECONDS.sleep(4);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    log.info("after sleep..");
                     return "1";
                 });
             }

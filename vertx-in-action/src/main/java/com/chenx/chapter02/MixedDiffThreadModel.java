@@ -13,6 +13,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class MixedDiffThreadModel extends AbstractVerticle {
     private static final Logger log = LoggerFactory.getLogger(MixedDiffThreadModel.class);
+
     @Override
     public void start() {
         // start在事件循环线程运行，获我们获取该verticle的context
@@ -27,12 +28,12 @@ public class MixedDiffThreadModel extends AbstractVerticle {
         }).start();
     }
 
-    private void run(Context context) throws InterruptedException{
+    private void run(Context context) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(1);
         log.info("Now, I am in a non-vertx thread. [{}]", Thread.currentThread().getName());
         context.runOnContext(v -> {
             log.info("I am in a vertx thread. [{}]", Thread.currentThread().getName());
-            vertx.setTimer(2000, id ->{
+            vertx.setTimer(2000, id -> {
                 log.info("this is final countdown.");
                 countDownLatch.countDown();
             });

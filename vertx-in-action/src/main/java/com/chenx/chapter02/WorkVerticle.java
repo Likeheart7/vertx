@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class WorkVerticle extends AbstractVerticle {
     private static final Logger log = LoggerFactory.getLogger(WorkVerticle.class);
+
     @Override
     public void start() throws Exception {
         vertx.setPeriodic(3000, id -> {

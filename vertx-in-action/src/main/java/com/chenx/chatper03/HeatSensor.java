@@ -24,7 +24,7 @@ public class HeatSensor extends AbstractVerticle {
     }
 
     private void update(Long timerId) {
-        temperature += (delta() /10);
+        temperature += (delta() / 10);
         JsonObject payload = new JsonObject()
                 .put("id", sensorId)
                 .put("temp", temperature);

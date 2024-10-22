@@ -20,7 +20,7 @@ public class ListenVerticle extends AbstractVerticle {
             JsonObject body = msg.body();
             String id = body.getString("id");
             String temp = format.format(body.getDouble("temp"));
-            log.info("{} reports a temperature ~{}℃",id , temp);
+            log.info("{} reports a temperature ~{}℃", id, temp);
         });
     }
 }

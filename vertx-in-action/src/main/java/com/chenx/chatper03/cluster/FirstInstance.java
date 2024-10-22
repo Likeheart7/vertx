@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
  */
 public class FirstInstance {
     private static final Logger log = LoggerFactory.getLogger(FirstInstance.class);
+
     public static void main(String[] args) {
         // 启动集群vertx是一个异步操作
         Vertx.clusteredVertx(new VertxOptions(), ar -> {
