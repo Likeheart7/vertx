@@ -1,0 +1,15 @@
+<configuration>
+    <!--定义一个向控制台发送事件的appender-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--定义日志格式-->
+            <pattern>%level [%thread] %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--减少netty本身打印的日志数量-->
+    <logger name="io.netty" level="warn"/>
+    <!--日志级别和appender配置-->
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
