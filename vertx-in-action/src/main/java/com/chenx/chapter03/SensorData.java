@@ -1,4 +1,4 @@
-package com.chenx.chatper03;
+package com.chenx.chapter03;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;

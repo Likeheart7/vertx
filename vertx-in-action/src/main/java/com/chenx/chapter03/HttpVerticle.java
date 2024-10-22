@@ -1,4 +1,4 @@
-package com.chenx.chatper03;
+package com.chenx.chapter03;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.TimeoutStream;
@@ -23,7 +23,7 @@ public class HttpVerticle extends AbstractVerticle {
             // 请求/sse路径
             sse(request);
         } else {    //其他路径返回404响应码
-            request.response().setStatusCode(404);
+            request.response().setStatusCode(404).end();
         }
     }
 

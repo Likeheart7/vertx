@@ -1,7 +1,7 @@
-package com.chenx.chatper03.cluster;
+package com.chenx.chapter03.cluster;
 
-import com.chenx.chatper03.HeatSensor;
-import com.chenx.chatper03.HttpVerticle;
+import com.chenx.chapter03.HeatSensor;
+import com.chenx.chapter03.HttpVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
