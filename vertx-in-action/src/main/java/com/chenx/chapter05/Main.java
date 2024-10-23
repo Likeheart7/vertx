@@ -1,6 +1,5 @@
 package com.chenx.chapter05;
 
-import com.chenx.chapter05.promise.CollectorServiceFuture;
 import com.chenx.chapter05.rxjava.RxJavaCollectorService;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;

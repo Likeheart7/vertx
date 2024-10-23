@@ -1,11 +1,14 @@
 package com.chenx.chapter05.rxjava;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import rx.Observable;
 
 import java.util.concurrent.TimeUnit;
 
 public class RxJavaBasis {
+    private static final Logger log = LoggerFactory.getLogger(RxJavaBasis.class);
     public static void main(String[] args) {
         observable();
     }
@@ -30,7 +33,7 @@ public class RxJavaBasis {
         try {
             TimeUnit.SECONDS.sleep(10);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            log.error("Interrupted Exception.");
         }
     }
 }

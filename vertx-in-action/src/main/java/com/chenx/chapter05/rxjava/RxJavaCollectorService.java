@@ -20,6 +20,7 @@ import rx.Single;
 public class RxJavaCollectorService extends AbstractVerticle {
     private static final Logger log = LoggerFactory.getLogger(RxJavaCollectorService.class);
     private WebClient webClient;
+
     @Override
     public Completable rxStart() {
         webClient = WebClient.create(vertx);
@@ -35,14 +36,13 @@ public class RxJavaCollectorService extends AbstractVerticle {
     private void handleRequest(HttpServerRequest request) {
         Single<JsonObject> data = collectTemperature();
         send2Snapshot(data) // 数据发给快照服务
-                .subscribe(json -> {
-                    request.response()
-                            .putHeader("Content-Type", "application/json")
-                            .end(json.encode());
-                }, err-> {
-                    log.error("Something went wrong", err);
-                    request.response().setStatusCode(500).end();
-                });
+                .subscribe(json -> request.response()
+                                .putHeader("Content-Type", "application/json")
+                                .end(json.encode())
+                        , err -> {
+                            log.error("Something went wrong", err);
+                            request.response().setStatusCode(500).end();
+                        });
     }
 
     private Single<HttpResponse<JsonObject>> fetchTemperature(int port) {
