@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
 import rx.Completable;
 import rx.Single;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 /**
  * 使用RxJava来重构CollectorService
  */
