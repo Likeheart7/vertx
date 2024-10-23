@@ -15,12 +15,14 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
+ * <pre>
  * 收集服务，整体逻辑是：
  * client -> server:8080 -> [post]server:3000+i -> server:8080(拿到数据)
  *   ⬆                                                   |
  *   <---------------------------------------------------|（发给快照服务）
  *          （快照服务成功，将数据响应给client）               ⬇
  *                                             server:4000(snapshot service)
+ * </pre>
  */
 public class CollectorService extends AbstractVerticle {
     private static final Logger log = LoggerFactory.getLogger(CollectionService.class);

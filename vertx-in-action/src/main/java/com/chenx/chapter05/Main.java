@@ -1,5 +1,6 @@
 package com.chenx.chapter05;
 
+import com.chenx.chapter05.promise.CollectorServiceFuture;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
@@ -26,6 +27,8 @@ public class Main {
 
         // 部署快照服务和采集服务
         vertx.deployVerticle(new SnapshotServer());
-        vertx.deployVerticle(new CollectorService());
+//        vertx.deployVerticle(new CollectorService());
+        // 使用Future重构Collector逻辑
+        vertx.deployVerticle(new CollectorServiceFuture());
     }
 }
